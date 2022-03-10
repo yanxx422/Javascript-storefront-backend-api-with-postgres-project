@@ -3,7 +3,7 @@
 
 # Introduction
 
-This is a project that builds a JavaScript API for an online store based on a requirements given by the stakeholders. Tasks include architect the database, tables, and columns to fulfill the requirements. A RESTful API to be accessible to the frontend developer. I have written test, secured user information with encryption, and provide tokens for integration into the frontend.
+This is a project that builds a JavaScript API for an online store based on a requirements given by the stakeholders. Tasks include architect the database, tables, and columns to fulfill the requirements. A RESTful API is created to be accessible to the frontend developer. There are also tests, secured user information with encryption, and provide tokens for integration into the frontend. The detailed requirment are in  `REQUIREMENTS.md` file.
 ## Technologies used
 - Postgres for the database
 - Node/Express for the application logic
@@ -109,7 +109,7 @@ The format is :
 
 # Further information
 
-This is the second  project of Udacity's  full-stack Javascript nanodegree program.
+This is the second project of Udacity's  full-stack Javascript nanodegree program.
 The instructions can be seen here:
 https://github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter
 
