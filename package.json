@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "node build/src/server.js",
+    "start": "node dist/server.js",
     "build": "npx tsc",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "set ENV=test&&db-migrate db:create shopping_db_test&&db-migrate --env test up && jasmine-ts ",
+    "test": "set ENV=test&&db-migrate db:create shopping_db_test&&db-migrate --env test up && jasmine-ts &&db-migrate db:drop shopping_db_test",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --config .prettierrc '*.js' --write",
     "tsc": "tsc"

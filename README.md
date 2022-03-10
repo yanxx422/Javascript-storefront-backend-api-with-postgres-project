@@ -1,11 +1,10 @@
-# Storefront Backend Project
+# # Storefront Backend Project
 
-## Getting Started
 
-This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
+# Introduction
 
-## Required Technologies
-Your application must make use of the following libraries:
+This is a project that builds a JavaScript API for an online store based on a requirements given by the stakeholders. Tasks include architect the database, tables, and columns to fulfill the requirements. A RESTful API to be accessible to the frontend developer. I have written test, secured user information with encryption, and provide tokens for integration into the frontend.
+## Technologies used
 - Postgres for the database
 - Node/Express for the application logic
 - dotenv from npm for managing environment variables
@@ -13,42 +12,104 @@ Your application must make use of the following libraries:
 - jsonwebtoken from npm for working with JWTs
 - jasmine from npm for testing
 
-## Steps to Completion
+# Environment Set-up
+Default port is 5432 as specified in `docker-composed.yml`file.
 
-### 1. Plan to Meet Requirements
+There should be an `.env` file at the root folder. As an example,
+```
+POSTGRES_HOST=localhost  
+POSTGRES_DB=shopping_db  
+POSTGRES_DB_TEST=shopping_db_test  
+POSTGRES_USER=<username> 
+POSTGRES_PASSWORD=<password> 
+ENV=dev  
+BCRYPT_PASSWORD=speak-friend-and-enter  
+SALT_ROUNDS=10  
+WEB_TOKEN=abcd1234
+```
+To create a database `shopping_db`, open Postgres terminal,
+Run `CREATE USER <username> WITH PASSWORD <password>;`
+Run `CREATE DATABASE shopping_db;`
+Run `GRANT ALL PRIVILEGES ON DATABASE shopping_dbTO <username>;`
 
-In this repo there is a `REQUIREMENTS.md` document which outlines what this API needs to supply for the frontend, as well as the agreed upon data shapes to be passed between front and backend. This is much like a document you might come across in real life when building or extending an API. 
+The test scripts will automatically create `shopping_db_test` database upon running and delete it when finished, so there is no need to create a test database.
 
-Your first task is to read the requirements and update the document with the following:
-- Determine the RESTful route for each endpoint listed. Add the RESTful route and HTTP verb to the document so that the frontend developer can begin to build their fetch requests.    
-**Example**: A SHOW route: 'blogs/:id' [GET] 
+After creating the database the `.env` file, go back to terminal,
+Run ` db-migrate up`  to create the database schema (don't forget to run `db-migrate down` delete the tables in the end).
 
-- Design the Postgres database tables based off the data shape requirements. Add to the requirements document the database tables and columns being sure to mark foreign keys.   
-**Example**: You can format this however you like but these types of information should be provided
-Table: Books (id:varchar, title:varchar, author:varchar, published_year:varchar, publisher_id:string[foreign key to publishers table], pages:number)
+Run `npm install` to install all dependencies.
+Run `npm run lint` to use eslint and prettier.
+Run `npm run lint -- --fix` to fix lint and prettier errors.
+Run `npm run test` to run jasmine tests.
 
-**NOTE** It is important to remember that there might not be a one to one ratio between data shapes and database tables. Data shapes only outline the structure of objects being passed between frontend and API, the database may need multiple tables to store a single shape. 
+## Start in development mode
 
-### 2.  DB Creation and Migrations
+Run `npm run watch` and check `http://localhost:3000/`.
 
-Now that you have the structure of the databse outlined, it is time to create the database and migrations. Add the npm packages dotenv and db-migrate that we used in the course and setup your Postgres database. If you get stuck, you can always revisit the database lesson for a reminder. 
+## Start in regular mode
 
-You must also ensure that any sensitive information is hashed with bcrypt. If any passwords are found in plain text in your application it will not pass.
+Run `npm run build` and `npm run start`and check `http://localhost:3000/`.
 
-### 3. Models
 
-Create the models for each database table. The methods in each model should map to the endpoints in `REQUIREMENTS.md`. Remember that these models should all have test suites and mocks.
 
-### 4. Express Handlers
+# API Endpoints
+## User
+The  format is :
+- id
+- firstName
+- lastName
+- password
 
-Set up the Express handlers to route incoming requests to the correct model method. Make sure that the endpoints you create match up with the enpoints listed in `REQUIREMENTS.md`. Endpoints must have tests and be CORS enabled. 
+#### Create a user: `POST http://localhost:3000/users`
+#### Display all users: `GET http://localhost:3000/users` , token required
+#### Display a specified user given its id: `GET http://localhost:3000/users/:id` , token required
+#### Authenticate users: `POST http://localhost:3000/users/authenticate` , token required
+#### Delete a specified user `DELETE http://localhost:3000/users/:id` , token required
 
-### 5. JWTs
 
-Add JWT functionality as shown in the course. Make sure that JWTs are required for the routes listed in `REQUIUREMENTS.md`.
+## Product
+The format is :
+-  id
+- name
+- price
+- category
+#### Create a product: `POST http://localhost:3000/products`
+#### Display all products: `GET http://localhost:3000/products`
+#### Display a specified product given its id: `GET http://localhost:3000/products/:id` , token required
+#### Delete a specified product`DELETE http://localhost:3000/products/:id` , token required
 
-### 6. QA and `README.md`
+## Order
+The format is :
+-  id
+- status
+- user_id
 
-Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
+#### Create an order (the referenced user must already exist) : `POST http://localhost:3000/orders'`
+#### Display all orders: `GET http://localhost:3000/orders'`
+#### Display a specified order given its id: `GET http://localhost:3000/orders/:id'` , token required
+#### Delete a specified order`DELETE http://localhost:3000/orders/:id'` , token required
 
-Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
+## OrderProduct
+The format is :
+-  id
+- quantity
+- product_id
+- order_id
+
+#### Create an order product relationship (the referenced order and product must already exist) : `POST http://localhost:3000/orders_products`
+#### Display a specified order product relationship given its id: `GET http://localhost:3000/orders_products/:id'`
+#### Delete a specified order product relationship `DELETE http://localhost:3000/orders_products/:id` , token required
+
+## Dashboard
+#### Display the five most popular products: `GET http://localhost:3000/five-most-popular` , the list is ordered by product's sold quantity
+
+#### Display all the products for a specified category : `GET http://localhost:3000/products/category/:category`
+#### Display all the active orders for a given user id: `GET http://localhost:3000/user/:id/orders`, token required
+#### Display all the complete orders for a given user id: `GET http://localhost:3000/user/:id/orders/completed`, token required
+
+# Further information
+
+This is the second  project of Udacity's  full-stack Javascript nanodegree program.
+The instructions can be seen here:
+https://github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter
+
