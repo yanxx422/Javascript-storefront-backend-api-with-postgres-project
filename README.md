@@ -1,7 +1,7 @@
-# # Storefront Backend Project
+# Storefront Backend Project
 
 
-# Introduction
+## Introduction
 
 This is a project that builds a JavaScript API for an online store based on a requirements given by the stakeholders. Tasks include architect the database, tables, and columns to fulfill the requirements. A RESTful API is created to be accessible to the frontend developer. There are also tests, secured user information with encryption, and provide tokens for integration into the frontend. The detailed requirment are in  `REQUIREMENTS.md` file.
 ## Technologies used
@@ -12,7 +12,7 @@ This is a project that builds a JavaScript API for an online store based on a re
 - jsonwebtoken from npm for working with JWTs
 - jasmine from npm for testing
 
-# Environment Set-up
+## Environment Set-up
 Default port is 5432 as specified in `docker-composed.yml`file.
 
 There should be an `.env` file at the root folder. As an example,
