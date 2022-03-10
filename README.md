@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This is a project that builds a JavaScript API for an online store based on a requirements given by the stakeholders. Tasks include architect the database, tables, and columns to fulfill the requirements. A RESTful API is created to be accessible to the frontend developer. There are also tests, secured user information with encryption, and provide tokens for integration into the frontend. The detailed requirment are in  `REQUIREMENTS.md` file.
+This is a project that builds a JavaScript API for an online store based on a requirements given by the stakeholders. Tasks include architect the database, tables, and columns to fulfill the requirements. A RESTful API is created to be accessible to the frontend developer. There are also tests, secured user information with encryption, and provide tokens for integration into the frontend. The detailed requirment can be found in  `REQUIREMENTS.md` file.
 ## Technologies used
 - Postgres for the database
 - Node/Express for the application logic
