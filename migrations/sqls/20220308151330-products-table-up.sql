@@ -1,0 +1,1 @@
+CREATE TABLE products(id SERIAL PRIMARY KEY, name VARCHAR(100), price decimal(8,2), category VARCHAR(100));

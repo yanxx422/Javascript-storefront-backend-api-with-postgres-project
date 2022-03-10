@@ -1,0 +1,28 @@
+{
+  "spec_dir": "src/tests",
+  "spec_files": [
+    "../**/tests/usersSpec.ts",
+    "../**/tests/productsSpec.ts",
+    "../**/tests/ordersSpec.ts",
+    "../**/tests/orders_productsSpec.ts",
+    "../**/tests/dashboardSpec.ts",
+    "../**/tests/users_handlerSpec.ts",
+    "../**/tests/products_handlerSpec.ts",
+    "../**/tests/orders_handlerSpec.ts",
+    "../**/tests/orders_products_handlerSpec.ts",
+    "../**/tests/dashboard_handlerSpec.ts"
+  ],
+  "helpers": [
+    "helpers/**/*.ts"
+  ],
+  "reporters": [
+    {
+      "name": "jasmine-spec-reporter#SpecReporter",
+      "options": {
+        "displayStacktrace": "all"
+      }
+    }
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "random": false
+}
