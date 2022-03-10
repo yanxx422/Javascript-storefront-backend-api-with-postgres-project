@@ -59,8 +59,10 @@ Run `npm run build` and `npm run start`and check `http://localhost:3000/`.
 
 
 # API Endpoints
+For all API's creation methods, id is optional.
+
 ## User
-The  format is :
+The format is :
 - id
 - firstName
 - lastName
@@ -70,7 +72,7 @@ The  format is :
 #### Display all users: `GET http://localhost:3000/users` , token required
 #### Display a specified user given its id: `GET http://localhost:3000/users/:id` , token required
 #### Authenticate users: `POST http://localhost:3000/users/authenticate` , token required
-#### Delete a specified user `DELETE http://localhost:3000/users/:id` , token required
+#### Delete a specified user: `DELETE http://localhost:3000/users/:id` , token required
 
 
 ## Product
@@ -82,7 +84,7 @@ The format is :
 #### Create a product: `POST http://localhost:3000/products`
 #### Display all products: `GET http://localhost:3000/products`
 #### Display a specified product given its id: `GET http://localhost:3000/products/:id` , token required
-#### Delete a specified product`DELETE http://localhost:3000/products/:id` , token required
+#### Delete a specified product: `DELETE http://localhost:3000/products/:id` , token required
 
 ## Order
 The format is :
@@ -93,7 +95,7 @@ The format is :
 #### Create an order (the referenced user must already exist) : `POST http://localhost:3000/orders'`
 #### Display all orders: `GET http://localhost:3000/orders'`
 #### Display a specified order given its id: `GET http://localhost:3000/orders/:id'` , token required
-#### Delete a specified order`DELETE http://localhost:3000/orders/:id'` , token required
+#### Delete a specified order: `DELETE http://localhost:3000/orders/:id'` , token required
 
 ## OrderProduct
 The format is :
@@ -104,7 +106,7 @@ The format is :
 
 #### Create an order product relationship (the referenced order and product must already exist) : `POST http://localhost:3000/orders_products`
 #### Display a specified order product relationship given its id: `GET http://localhost:3000/orders_products/:id'`
-#### Delete a specified order product relationship `DELETE http://localhost:3000/orders_products/:id` , token required
+#### Delete a specified order product relationship: `DELETE http://localhost:3000/orders_products/:id` , token required
 
 ## Dashboard
 #### Display the five most popular products: `GET http://localhost:3000/five-most-popular` , the list is ordered by product's sold quantity
