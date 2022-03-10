@@ -32,7 +32,7 @@ Run `CREATE USER <username> WITH PASSWORD <password>;`
 
 Run `CREATE DATABASE shopping_db;`
 
-Run `GRANT ALL PRIVILEGES ON DATABASE shopping_dbTO <username>;`
+Run `GRANT ALL PRIVILEGES ON DATABASE shopping_db TO <username>;`
 
 The test scripts will automatically create `shopping_db_test` database upon running and delete it when finished, so there is no need to create a test database.
 
