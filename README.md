@@ -38,7 +38,7 @@ The test scripts will automatically create `shopping_db_test` database upon runn
 
 After creating the database and the `.env` file, go back to terminal.
 
-Run ` db-migrate up`  to create the database schema (don't forget to run `db-migrate down` delete the tables in the end).
+Run ` db-migrate up`  to create the database schema (don't forget to run `db-migrate down` to delete the tables in the end).
 
 Run `npm install` to install all dependencies.
 
