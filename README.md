@@ -36,7 +36,8 @@ Run `GRANT ALL PRIVILEGES ON DATABASE shopping_db TO <username>;`
 
 The test scripts will automatically create `shopping_db_test` database upon running and delete it when finished, so there is no need to create a test database.
 
-After creating the database and the `.env` file, go back to terminal,
+After creating the database and the `.env` file, go back to terminal.
+
 Run ` db-migrate up`  to create the database schema (don't forget to run `db-migrate down` delete the tables in the end).
 
 Run `npm install` to install all dependencies.
@@ -92,10 +93,10 @@ The format is :
 - status
 - user_id
 
-#### Create an order (the referenced user must already exist) : `POST http://localhost:3000/orders'`
-#### Display all orders: `GET http://localhost:3000/orders'`
-#### Display a specified order given its id: `GET http://localhost:3000/orders/:id'` , token required
-#### Delete a specified order: `DELETE http://localhost:3000/orders/:id'` , token required
+#### Create an order (the referenced user must already exist) : `POST http://localhost:3000/orders`
+#### Display all orders: `GET http://localhost:3000/orders`
+#### Display a specified order given its id: `GET http://localhost:3000/orders/:id` , token required
+#### Delete a specified order: `DELETE http://localhost:3000/orders/:id` , token required
 
 ## OrderProduct
 The format is :
@@ -105,7 +106,7 @@ The format is :
 - order_id
 
 #### Create an order product relationship (the referenced order and product must already exist) : `POST http://localhost:3000/orders_products`
-#### Display a specified order product relationship given its id: `GET http://localhost:3000/orders_products/:id'`
+#### Display a specified order product relationship given its id: `GET http://localhost:3000/orders_products/:id`
 #### Delete a specified order product relationship: `DELETE http://localhost:3000/orders_products/:id` , token required
 
 ## Dashboard
